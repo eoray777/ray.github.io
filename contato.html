@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Document</title>
+</head>
+<script src="script.js"></script>
+<body>
+   
+    <center>
+        <h1>CONTATO</h1>
+        <div id="catalogo">
+            <a href="sobre.html">
+               <div>
+                <h3>sobre</h3>
+               </div>
+            </a>
+            <a href="portfolio.html">
+                <div>
+                <h3>portfolio</h3>
+                </div>
+            </a>
+            <a href="contato.html">
+                <div>
+                <h3>contato</h3>
+                </div> 
+            </a>
+            <a href="catalogo.html">
+                <div>
+                <h3>home</h3>
+                </div> 
+            </a>
+        </div>
+        <div id="contato">
+            <form onsubmit="handleSubmit(event)">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                
+                <label for="numero">Número:</label>
+                <input type="text" id="numero" name="numero" required><br><br>
+                
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" required></textarea><br><br>
+                
+                <button type="submit">Enviar</button>
+                <button type="reset">Apagar</button>
+            </form>
+            
+        </div>
+      </center>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>catalogo</title>
+    
+</head>
+<body>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color:darkslateblue;
+        color: #333;
+        text-align: center;
+        padding: 50px;
+        min-height: 100vh;
+        max-width: 1775px;
+        margin: 0 auto;
+     
+    }
+    h1 {
+        color:white;
+    }
+    .game-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin: 0 auto;
+    }
+    .message {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    input[type="number"] {
+        padding: 10px;
+        font-size: 16px;
+        width: 80%;
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    #catalogo{
+        border: 9px solid black;
+        width: 99%;
+        background-color: lightblue;
+        color: black;
+        display: flex;
+        justify-content: space-around;  
+    }  
+</style>
+    
+    <center>
+        <h1>ADIVINHAÇÃO</h1>
+        <div id="catalogo">
+            <a href="sobre.html">
+               <div>
+                <h3>sobre</h3>
+               </div>
+            </a>
+            <a href="portfolio.html">
+                <div>
+                <h3>portfolio</h3>
+                </div>
+            </a>
+            <a href="contato.html">
+                <div>
+                <h3>contato</h3>
+                </div> 
+            </a>
+            <a href="catalogo.html">
+                <div>
+                <h3>home</h3>
+                </div> 
+            </a>
+        </div>
+            <div class="game-container">
+                <p>Tente adivinhar o número aleatório entre 1 e 100!</p>
+                <input type="number" id="userGuess" placeholder="Digite seu palpite" min="1" max="100">
+                <br>
+                <button onclick="adivinhar()">Adivinhar</button>
+                <p class="message" id="message"></p>
+            </div>
+        
+            <script>
+              
+                let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+                let tentativas = 0;
+        
+                function adivinhar() {
+                  
+                    let palpite = parseInt(document.getElementById('userGuess').value);
+                    let mensagem = document.getElementById('message');
+                    tentativas++;
+        
+                   
+                    if (isNaN(palpite) || palpite < 1 || palpite > 100) {
+                        mensagem.innerHTML = "Por favor, insira um número entre 1 e 100.";
+                        return;
+                    }
+        
+                    if (palpite < numeroAleatorio) {
+                        mensagem.innerHTML = "Maior! Tente novamente.";
+                    } else if (palpite > numeroAleatorio) {
+                        mensagem.innerHTML = "Menor! Tente novamente.";
+                    } else {
+                        mensagem.innerHTML = `Parabéns! Você acertou o número ${numeroAleatorio} em ${tentativas} tentativas!`;
+                    }
+        
+                   
+                    document.getElementById('userGuess').value = '';
+                }
+            </script>
+        
+        </body>
+        </html>
+        

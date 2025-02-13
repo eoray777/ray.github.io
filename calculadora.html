@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Document</title>
+</head>
+<body>
+    <script src="calculadora.js"></script>
+    <center>
+        <h1>CALCULADORA</h1>
+        <div id="catalogo">
+            <a href="sobre.html">
+               <div>
+                <h3>sobre</h3>
+               </div>
+            </a>
+            <a href="portfolio.html">
+                <div>
+                <h3>portfolio</h3>
+                </div>
+            </a>
+            <a href="contato.html">
+                <div>
+                <h3>contato</h3>
+                </div> 
+            </a>
+            <a href="catalogo.html">
+                <div>
+                <h3>home</h3>
+                </div> 
+            </a>
+        </div>
+        <!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons/Ice.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:darkslateblue;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            padding: 50px;
+            min-height: 100vh;
+            max-width: 1775px;
+            margin: 0 auto;
+        }
+
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        .display {
+            width: 260px;
+            height: 50px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: right;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 18px;
+            margin: 5px;
+            width: 50px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        button:active {
+            background-color: #ccc;
+        }
+
+        .equal {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .equal:hover {
+            background-color: #218838;
+        }
+
+        .clear {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .clear:hover {
+            background-color: #c82333;
+        }
+        #catalogo{
+             border: 9px solid black;
+             width: 99%;
+             background-color: lightblue;
+             color: black;
+             display: flex;
+             justify-content: space-around;  
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="homeName">
+           
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator">
+            <input type="text" id="display" class="display" disabled />
+            <br />
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('+')">+</button>
+            <br />
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('-')">-</button>
+            <br />
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('*')">*</button>
+            <br />
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="clearDisplay()" class="clear">C</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="calculate()" class="equal">=</button>
+        </div>
+    </main>
+
+    <footer class="referencia">
+        <div class="ref">
+            <p>
+                <a href="contato.html" target="_self" rel="next">Contato</a>
+            </p>
+        </div>
+
+        <p>&copy; 2025 Raymison Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            const display = document.getElementById('display');
+            try {
+                display.value = eval(display.value);
+            } catch (e) {
+                display.value = 'Erro';
+            }
+        }
+    </script>
+</body>
+
+</html>
