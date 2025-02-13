@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Document</title>
+</head>
+<body>
+    <script src="calculadora.js"></script>
+    <center>
+        <h1>QUIZ</h1>
+        <div id="catalogo">
+            <a href="sobre.html">
+               <div>
+                <h3>sobre</h3>
+               </div>
+            </a>
+            <a href="portfolio.html">
+                <div>
+                <h3>portfolio</h3>
+                </div>
+            </a>
+            <a href="contato.html">
+                <div>
+                <h3>contato</h3>
+                </div> 
+            </a>
+            <a href="catalogo.html">
+                <div>
+                <h3>home</h3>
+                </div> 
+            </a>
+        </div>
+        <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo - Cultura Geral</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: darkslateblue;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            min-height: 100vh;
+            max-width: 1775px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+        }
+        .quiz-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .answers {
+            margin-bottom: 20px;
+        }
+        .answers input {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: white;
+        }
+        #catalogo{
+             border: 9px solid black;
+             width: 99%;
+             background-color: lightblue;
+             color: black;
+             display: flex;
+             justify-content: space-around;  
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="quiz-container" id="quiz">
+        <div class="question">
+            <p>1. Quem escreveu "Dom Casmurro"?</p>
+            <div class="answers">
+                <label><input type="radio" name="q1" value="0"> Machado de Assis</label><br>
+                <label><input type="radio" name="q1" value="1"> José de Alencar</label><br>
+                <label><input type="radio" name="q1" value="2"> Clarice Lispector</label><br>
+                <label><input type="radio" name="q1" value="3"> João Guimarães Rosa</label><br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. Qual é o maior planeta do sistema solar?</p>
+            <div class="answers">
+                <label><input type="radio" name="q2" value="0"> Marte</label><br>
+                <label><input type="radio" name="q2" value="1"> Terra</label><br>
+                <label><input type="radio" name="q2" value="2"> Júpiter</label><br>
+                <label><input type="radio" name="q2" value="3"> Saturno</label><br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. Qual a capital do Brasil?</p>
+            <div class="answers">
+                <label><input type="radio" name="q3" value="0"> Rio de Janeiro</label><br>
+                <label><input type="radio" name="q3" value="1"> São Paulo</label><br>
+                <label><input type="radio" name="q3" value="2"> Brasília</label><br>
+                <label><input type="radio" name="q3" value="3"> Salvador</label><br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. Quem pintou a Mona Lisa?</p>
+            <div class="answers">
+                <label><input type="radio" name="q4" value="0"> Leonardo da Vinci</label><br>
+                <label><input type="radio" name="q4" value="1"> Pablo Picasso</label><br>
+                <label><input type="radio" name="q4" value="2"> Vincent van Gogh</label><br>
+                <label><input type="radio" name="q4" value="3"> Claude Monet</label><br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>5. Qual é o continente onde se encontra o Egito?</p>
+            <div class="answers">
+                <label><input type="radio" name="q5" value="0"> Ásia</label><br>
+                <label><input type="radio" name="q5" value="1"> Europa</label><br>
+                <label><input type="radio" name="q5" value="2"> África</label><br>
+                <label><input type="radio" name="q5" value="3"> América</label><br>
+            </div>
+        </div>
+
+        <button class="submit-btn" onclick="calcularPontuacao()">Enviar Respostas</button>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function calcularPontuacao() {
+            var pontuacao = 0;
+            var respostasCorretas = [0, 2, 2, 0, 2]; 
+
+            for (var i = 1; i <= 5; i++) {
+                var pergunta = document.getElementsByName('q' + i);
+                for (var j = 0; j < pergunta.length; j++) {
+                    if (pergunta[j].checked) {
+                        if (parseInt(pergunta[j].value) === respostasCorretas[i - 1]) {
+                            pontuacao++;
+                        }
+                    }
+                }
+            }
+
+            document.getElementById('result').innerHTML = 'Sua pontuação final é: ' + pontuacao + '/5';
+        }
+    </script>
+
+</body>
+</html>

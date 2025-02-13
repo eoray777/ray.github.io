@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Document</title>
+</head>
+<script src="script.js"></script>
+<body>
+   
+    <center>
+         <h1>Calculadora de IMC</h1>
+        <div id="catalogo">
+            <a href="sobre.html">
+               <div>
+                <h3>sobre</h3>
+               </div>
+            </a>
+            <a href="portfolio.html">
+                <div>
+                <h3>portfolio</h3>
+                </div>
+            </a>
+            <a href="contato.html">
+                <div>
+                <h3>contato</h3>
+                </div> 
+            </a>
+            <a href="catalogo.html">
+                <div>
+                <h3>home</h3>
+                </div> 
+            </a>
+        </div>
+        <!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons/Ice.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:darkslateblue;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            padding: 50px;
+            min-height: 100vh;
+            max-width: 1775px;
+            margin: 0 auto;
+        }
+
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        h1 {
+            color:wh;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-right: 10px;
+            width: 150px;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .reset {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .reset:hover {
+            text-decoration: underline;
+        }
+
+        .classification {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .normal {
+            color: green;
+        }
+
+        .overweight {
+            color: orange;
+        }
+
+        .obesity {
+            color: red;
+        }
+        #catalogo{
+             border: 9px solid black;
+             width: 99%;
+             background-color: lightblue;
+             color: black;
+             display: flex;
+             justify-content: space-around;  
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="homeName">
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator">
+            <label for="weight">Peso (kg): </label>
+            <input type="number" id="weight" placeholder="Ex: 70" required><br><br>
+
+            <label for="height">Altura (m): </label>
+            <input type="number" step="0.01" id="height" placeholder="Ex: 1.75" required><br><br>
+
+            <button onclick="calculateIMC()">Calcular IMC</button>
+
+            <div class="result" id="result"></div>
+            <div class="classification" id="classification"></div>
+            <span class="reset" onclick="resetForm()">Resetar</span>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Calculadora IMC. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function calculateIMC() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const resultElement = document.getElementById('result');
+            const classificationElement = document.getElementById('classification');
+
+            if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+                resultElement.textContent = 'Por favor, insira valores válidos.';
+                resultElement.style.color = 'red';
+                return;
+            }
+
+            const imc = weight / (height * height);
+            resultElement.textContent = `Seu IMC é: ${imc.toFixed(2)}`;
+
+            if (imc < 18.5) {
+                classificationElement.textContent = 'Classificação: Abaixo do peso';
+                classificationElement.className = 'classification below';
+            } else if (imc >= 18.5 && imc < 24.9) {
+                classificationElement.textContent = 'Classificação: Peso normal';
+                classificationElement.className = 'classification normal';
+            } else if (imc >= 25 && imc < 29.9) {
+                classificationElement.textContent = 'Classificação: Sobrepeso';
+                classificationElement.className = 'classification overweight';
+            } else {
+                classificationElement.textContent = 'Classificação: Obesidade';
+                classificationElement.className = 'classification obesity';
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('weight').value = '';
+            document.getElementById('height').value = '';
+            document.getElementById('result').textContent = '';
+            document.getElementById('classification').textContent = '';
+        }
+    </script>
+</body>
+
+</html>

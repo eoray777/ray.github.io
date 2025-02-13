@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Document</title>
+</head>
+<body>
+    <script src="calculadora.js"></script>
+    <center>
+        <h1>CONVERSOR DE UNIDADES</h1>
+        <div id="catalogo">
+            <a href="sobre.html">
+               <div>
+                <h3>sobre</h3>
+               </div>
+            </a>
+            <a href="portfolio.html">
+                <div>
+                <h3>portfolio</h3>
+                </div>
+            </a>
+            <a href="contato.html">
+                <div>
+                <h3>contato</h3>
+                </div> 
+            </a>
+            <a href="catalogo.html">
+                <div>
+                <h3>home</h3>
+                </div> 
+            </a>
+        </div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Unidades</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons/Ice.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:darkslateblue;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            padding: 50px;
+            min-height: 100vh;
+            max-width: 1775px;
+            margin: 0 auto;
+        }
+
+        .converter {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 30px;
+            width: 300px;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        label {
+            font-size: 16px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .reset {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .reset:hover {
+            text-decoration: underline;
+        }
+        #catalogo{
+             border: 9px solid black;
+             width: 99%;
+             background-color: lightblue;
+             color: black;
+             display: flex;
+             justify-content: space-around;  
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="homeName">
+            
+        </div>
+    </header>
+
+    <main>
+        <div class="converter">
+            
+            <div>
+                <label for="celsius">Temperatura em Celsius (°C):</label>
+                <input type="number" id="celsius" placeholder="Ex: 25" required>
+                <button onclick="convertCelsius()">Converter para Fahrenheit</button>
+                <div class="result" id="resultCelsius"></div>
+            </div>
+            <hr>
+           
+            <div>
+                <label for="metros">Distância em Metros (m):</label>
+                <input type="number" id="metros" placeholder="Ex: 2" required>
+                <button onclick="convertMetros()">Converter para Centímetros</button>
+                <div class="result" id="resultMetros"></div>
+            </div>
+            <hr>
+         
+            <div>
+                <label for="quilos">Peso em Quilos (kg):</label>
+                <input type="number" id="quilos" placeholder="Ex: 70" required>
+                <button onclick="convertQuilos()">Converter para Libras</button>
+                <div class="result" id="resultQuilos"></div>
+            </div>
+            <span class="reset" onclick="resetForm()">Resetar</span>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Conversor de Unidades. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        
+        function convertCelsius() {
+            const celsius = parseFloat(document.getElementById('celsius').value);
+            const resultCelsius = document.getElementById('resultCelsius');
+
+            if (isNaN(celsius)) {
+                resultCelsius.textContent = 'Por favor, insira um valor válido.';
+                resultCelsius.style.color = 'red';
+                return;
+            }
+
+            const fahrenheit = (celsius * 9 / 5) + 32;
+            resultCelsius.textContent = `${celsius}°C é igual a ${fahrenheit.toFixed(2)}°F`;
+        }
+
+       
+        function convertMetros() {
+            const metros = parseFloat(document.getElementById('metros').value);
+            const resultMetros = document.getElementById('resultMetros');
+
+            if (isNaN(metros)) {
+                resultMetros.textContent = 'Por favor, insira um valor válido.';
+                resultMetros.style.color = 'red';
+                return;
+            }
+
+            const centimetros = metros * 100;
+            resultMetros.textContent = `${metros} metros é igual a ${centimetros.toFixed(2)} centímetros`;
+        }
+
+       
+        function convertQuilos() {
+            const quilos = parseFloat(document.getElementById('quilos').value);
+            const resultQuilos = document.getElementById('resultQuilos');
+
+            if (isNaN(quilos)) {
+                resultQuilos.textContent = 'Por favor, insira um valor válido.';
+                resultQuilos.style.color = 'red';
+                return;
+            }
+
+            const libras = quilos * 2.20462;
+            resultQuilos.textContent = `${quilos} quilos é igual a ${libras.toFixed(2)} libras`;
+        }
+
+        
+        function resetForm() {
+            document.getElementById('celsius').value = '';
+            document.getElementById('metros').value = '';
+            document.getElementById('quilos').value = '';
+            document.getElementById('resultCelsius').textContent = '';
+            document.getElementById('resultMetros').textContent = '';
+            document.getElementById('resultQuilos').textContent = '';
+        }
+    </script>
+</body>
+
+</html>
